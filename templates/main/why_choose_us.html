@@ -1,0 +1,447 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Why Choose Us - Janonix Technologies Ltd{% endblock %}
+
+{% block description %}Discover why businesses choose Janonix Technologies Ltd for their digital transformation. Learn about our expertise, commitment, and proven track record.{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero-section why-choose-hero">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="hero-title">Why Choose Janonix?</h1>
+                <p class="hero-subtitle">Discover what sets us apart in the digital solutions landscape and makes us your ideal technology partner</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- Key Differentiators Section -->
+    <section class="differentiators-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">What Makes Us Different</h2>
+                <p class="section-subtitle">The unique advantages that set us apart from other technology providers</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="diff-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Proven Track Record</h4>
+                        <p>With hundreds of successful projects and 100% client satisfaction rate, our results speak for themselves.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="diff-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Cutting-Edge Technology</h4>
+                        <p>We stay ahead of technological trends to deliver innovative solutions using the latest frameworks and tools.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="differentiator-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="diff-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Partnership Approach</h4>
+                        <p>We don't just deliver projects - we build lasting partnerships focused on your long-term success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Reasons Section -->
+    <section class="reasons-section">
+        <div class="container">
+            {% if reasons %}
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Core Strengths</h2>
+                <p class="section-subtitle">The fundamental reasons why businesses trust us with their digital transformation</p>
+            </div>
+            <div class="row">
+                {% for reason in reasons %}
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                        <div class="reason-icon">
+                            {% if reason.icon %}
+                                <i class="{{ reason.icon }}"></i>
+                            {% else %}
+                                <i class="fas fa-star"></i>
+                            {% endif %}
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">{{ reason.title }}</h3>
+                            <p class="reason-description">{{ reason.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <!-- Default reasons when no data is available -->
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Core Strengths</h2>
+                <p class="section-subtitle">The fundamental reasons why businesses trust us with their digital transformation</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="100">
+                        <div class="reason-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">Deep Technical Expertise</h3>
+                            <p class="reason-description">Our team brings years of experience in cutting-edge technologies and industry best practices to deliver exceptional results that exceed expectations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="reason-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">Client-Centered Philosophy</h3>
+                            <p class="reason-description">We prioritize understanding your unique needs and work collaboratively to ensure our solutions align perfectly with your business goals and vision.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="300">
+                        <div class="reason-icon">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">Reliable Delivery</h3>
+                            <p class="reason-description">We understand the importance of deadlines and consistently deliver high-quality solutions on time and within budget, every time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="400">
+                        <div class="reason-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">Security & Compliance</h3>
+                            <p class="reason-description">We implement robust security measures and follow industry standards to protect your data and ensure full compliance with regulations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="500">
+                        <div class="reason-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">Future-Ready Solutions</h3>
+                            <p class="reason-description">Our solutions are designed to grow with your business, ensuring long-term value and seamless adaptability to changing market needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="reason-card" data-aos="fade-left" data-aos-delay="600">
+                        <div class="reason-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h3 class="reason-title">Comprehensive Support</h3>
+                            <p class="reason-description">We provide ongoing support and maintenance to ensure your solutions continue to perform optimally long after the initial launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="approach-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Proven Methodology</h2>
+                <p class="section-subtitle">The systematic approach that ensures success in every project we undertake</p>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="approach-content">
+                        <div class="approach-item">
+                            <div class="approach-number">01</div>
+                            <div class="approach-details">
+                                <h4>Deep Business Understanding</h4>
+                                <p>We begin by thoroughly understanding your business model, industry challenges, and strategic objectives to create truly tailored solutions.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">02</div>
+                            <div class="approach-details">
+                                <h4>Strategic Technology Planning</h4>
+                                <p>Our team develops a comprehensive technology strategy that aligns seamlessly with your business goals and growth plans.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">03</div>
+                            <div class="approach-details">
+                                <h4>Agile Development Process</h4>
+                                <p>We use proven agile methodologies to ensure flexibility, transparency, and continuous improvement throughout the entire project lifecycle.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">04</div>
+                            <div class="approach-details">
+                                <h4>Quality Assurance Excellence</h4>
+                                <p>Rigorous testing and quality assurance processes ensure that every solution meets the highest standards of performance and reliability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="approach-visual">
+                        <div class="visual-grid">
+                            <div class="visual-element">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Innovation</span>
+                            </div>
+                            <div class="visual-element">
+                                <i class="fas fa-cogs"></i>
+                                <span>Technology</span>
+                            </div>
+                            <div class="visual-element">
+                                <i class="fas fa-users"></i>
+                                <span>Collaboration</span>
+                            </div>
+                            <div class="visual-element">
+                                <i class="fas fa-target"></i>
+                                <span>Results</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Success by the Numbers</h2>
+                <p class="section-subtitle">Quantifiable results that demonstrate our commitment to excellence</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="metric-card">
+                        <div class="metric-number">150+</div>
+                        <div class="metric-label">Projects Delivered</div>
+                        <div class="metric-description">Successfully completed across various industries</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="metric-card">
+                        <div class="metric-number">100%</div>
+                        <div class="metric-label">Client Satisfaction</div>
+                        <div class="metric-description">Maintained across all our projects</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="metric-card">
+                        <div class="metric-number">5+</div>
+                        <div class="metric-label">Years Experience</div>
+                        <div class="metric-description">In cutting-edge technology solutions</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="metric-card">
+                        <div class="metric-number">24/7</div>
+                        <div class="metric-label">Support Available</div>
+                        <div class="metric-description">Round-the-clock assistance for our clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Real feedback from businesses that have experienced our exceptional service</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Janonix Technologies delivered an exceptional web application that transformed our business operations. Their team was professional, responsive, and delivered exactly what we needed on schedule."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5>Sarah Johnson</h5>
+                                <span>CEO, TechStart Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"The mobile app they developed for us has significantly improved our customer engagement and retention. The team's expertise and attention to detail were truly outstanding throughout the project."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5>Michael Chen</h5>
+                                <span>CTO, InnovateCorp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Working with Janonix was a game-changer for our business. Their API integration streamlined our operations and improved our overall efficiency by 40%. Highly recommended!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5>Emily Rodriguez</h5>
+                                <span>Operations Manager, LogiFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Choose Excellence?</h2>
+                <p class="cta-description">
+                    Experience the difference of working with a team that puts your success first
+                </p>
+                <div class="cta-buttons">
+                    <a href="{% url 'contact' %}" class="btn btn-primary">
+                        <i class="fas fa-star"></i>
+                        Choose Janonix
+                    </a>
+                    <a href="{% url 'about' %}" class="btn btn-outline-white">
+                        <i class="fas fa-users"></i>
+                        Meet Our Team
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-background">
+            <div class="cta-shape shape-1"></div>
+            <div class="cta-shape shape-2"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.differentiators-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.differentiator-card {
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid #e2e8f0;
+}
+
+.differentiator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.diff-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.diff-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.differentiator-card h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.differentiator-card p {
+    color: #718096;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.metrics-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.metric-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.metric-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: white;
+}
+
+.metric-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: white;
+}
+
+.metric-description {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    color: white;
+}
+
+.visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+</style>
+{% endblock %}

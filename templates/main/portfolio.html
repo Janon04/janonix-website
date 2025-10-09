@@ -1,0 +1,436 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Portfolio - Janonix Technologies Ltd{% endblock %}
+
+{% block description %}Explore our portfolio of successful projects including web applications, mobile apps, and digital solutions. See how we've helped businesses transform digitally.{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero-section portfolio-hero">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="hero-title">Our Portfolio</h1>
+                <p class="hero-subtitle">Showcasing our successful projects and digital transformations that drive business growth</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Stats Section -->
+    <section class="portfolio-stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>{{ projects.count|default:"50" }}+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>100+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>24/7</h3>
+                            <p>Support Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>100%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    {% if featured_projects %}
+    <section class="featured-projects-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Our most impactful and innovative solutions that showcase our expertise</p>
+            </div>
+            <div class="row">
+                {% for project in featured_projects %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card featured" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                        {% if project.image %}
+                        <div class="project-image">
+                            <img src="{{ project.image }}" alt="{{ project.title }}" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    {% if project.project_url %}
+                                    <a href="{{ project.project_url }}" target="_blank" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-external-link-alt"></i> View Live
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="project-image placeholder">
+                            <div class="placeholder-content">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>{{ project.title }}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="project-content">
+                            <div class="project-badge">Featured</div>
+                            <h3 class="project-title">{{ project.title }}</h3>
+                            <p class="project-description">{{ project.description|truncatewords:20 }}</p>
+                            <div class="project-tech">
+                                <strong>Technologies:</strong>
+                                <span class="tech-stack">{{ project.technology_stack }}</span>
+                            </div>
+                            <div class="project-footer">
+                                {% if project.project_url %}
+                                <a href="{{ project.project_url }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-external-link-alt"></i> View Project
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- All Projects Section -->
+    <section class="all-projects-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">{% if featured_projects %}All Projects{% else %}Our Projects{% endif %}</h2>
+                <p class="section-subtitle">A comprehensive showcase of our work across different industries and technologies</p>
+            </div>
+
+            {% if projects %}
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card{% if project.is_featured %} featured{% endif %}">
+                        {% if project.image %}
+                        <div class="project-image">
+                            <img src="{{ project.image }}" alt="{{ project.title }}" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    {% if project.project_url %}
+                                    <a href="{{ project.project_url }}" target="_blank" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-external-link-alt"></i> View Live
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="project-image placeholder">
+                            <div class="placeholder-content">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>{{ project.title }}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="project-content">
+                            {% if project.is_featured %}
+                            <div class="project-badge">Featured</div>
+                            {% endif %}
+                            <h3 class="project-title">{{ project.title }}</h3>
+                            <p class="project-description">{{ project.description|truncatewords:15 }}</p>
+                            <div class="project-tech">
+                                <strong>Technologies:</strong>
+                                <span class="tech-stack">{{ project.technology_stack }}</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">
+                                    <i class="fas fa-calendar"></i> {{ project.created_at|date:"M Y" }}
+                                </span>
+                            </div>
+                            <div class="project-footer">
+                                {% if project.project_url %}
+                                <a href="{{ project.project_url }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-external-link-alt"></i> View Project
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="no-projects">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>Showcase Coming Soon</h3>
+                        <p>We're currently updating our portfolio with our latest projects. Contact us to learn more about our recent work and capabilities.</p>
+                        <a href="{% url 'contact' %}" class="btn btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Project Categories Section -->
+    <section class="project-categories-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">What We Build</h2>
+                <p class="section-subtitle">Our expertise spans across various project types and cutting-edge technologies</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Web Applications</h4>
+                        <p>Custom web applications built with modern frameworks and technologies for optimal performance and user experience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile Apps</h4>
+                        <p>Native and cross-platform mobile applications for iOS and Android with seamless user experiences and robust functionality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h4>API Integration</h4>
+                        <p>Robust API development and third-party integrations to connect and enhance your existing systems and workflows.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4>E-commerce Solutions</h4>
+                        <p>Complete e-commerce platforms with payment processing, inventory management, and comprehensive analytics dashboards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Success Section -->
+    <section class="client-success-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Client Success Stories</h2>
+                <p class="section-subtitle">Real results from real projects that made a difference</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="success-card">
+                        <div class="success-metric">
+                            <span class="metric-number">300%</span>
+                            <span class="metric-label">Increase in Sales</span>
+                        </div>
+                        <p>"The e-commerce platform Janonix built for us tripled our online sales within the first quarter."</p>
+                        <div class="client-info">
+                            <strong>Retail Client</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="success-card">
+                        <div class="success-metric">
+                            <span class="metric-number">50%</span>
+                            <span class="metric-label">Efficiency Improvement</span>
+                        </div>
+                        <p>"Their custom web application streamlined our operations and improved efficiency by 50%."</p>
+                        <div class="client-info">
+                            <strong>Manufacturing Company</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="success-card">
+                        <div class="success-metric">
+                            <span class="metric-number">24/7</span>
+                            <span class="metric-label">System Uptime</span>
+                        </div>
+                        <p>"The mobile app they developed has maintained 99.9% uptime and excellent user ratings."</p>
+                        <div class="client-info">
+                            <strong>Tech Startup</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Inspired by Our Work?</h2>
+                <p class="cta-description">
+                    Let's create something equally impressive for your business. Your success story starts here
+                </p>
+                <div class="cta-buttons">
+                    <a href="{% url 'contact' %}" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Start Your Project
+                    </a>
+                    <a href="{% url 'services' %}" class="btn btn-outline-white">
+                        <i class="fas fa-cogs"></i>
+                        Explore Services
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-background">
+            <div class="cta-shape shape-1"></div>
+            <div class="cta-shape shape-2"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.portfolio-stats-section {
+    padding: 60px 0;
+    background: white;
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ed64a6 0%, #9f7aea 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.stat-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.stat-content p {
+    color: #718096;
+    margin: 0;
+    font-weight: 500;
+}
+
+.client-success-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.success-card {
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #ed64a6;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.success-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.success-metric {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.metric-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ed64a6;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    display: block;
+    color: #718096;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.success-card p {
+    font-style: italic;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.client-info {
+    color: #2d3748;
+    font-size: 0.875rem;
+}
+</style>
+{% endblock %}

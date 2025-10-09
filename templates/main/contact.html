@@ -1,0 +1,482 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Janonix Technologies Ltd{% endblock %}
+
+{% block description %}Get in touch with Janonix Technologies Ltd. Contact us for web development, mobile apps, API integrations, and digital solutions. We're here to help transform your business.{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero-section contact-hero">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-subtitle">Let's discuss how we can help transform your business with innovative digital solutions</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-8 mb-5">
+                    <div class="contact-form-wrapper" data-aos="fade-right">
+                        <div class="form-header">
+                            <h2>Send Us a Message</h2>
+                            <p>Fill out the form below and we'll get back to you within 24 hours. Let's start building something amazing together.</p>
+                        </div>
+
+                        {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                <i class="fas fa-{% if message.tags == 'success' %}check-circle{% else %}exclamation-circle{% endif %}"></i>
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <form method="post" class="contact-form" id="contactForm">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Full Name *</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your full name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope"></i>
+                                            <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email address">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-tag"></i>
+                                    <input type="text" id="subject" name="subject" class="form-control" required placeholder="What's this about?">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-comment"></i>
+                                    <textarea id="message" name="message" class="form-control" rows="6" required placeholder="Tell us about your project, requirements, or how we can help you..."></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                                <p class="form-note">We'll respond within 24 hours during business days</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 mb-5">
+                    <div class="contact-info" data-aos="fade-left">
+                        <h3>Get In Touch</h3>
+                        <p>Ready to start your project? We're here to help you transform your business with cutting-edge digital solutions.</p>
+
+                        {% if company_info %}
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:{{ company_info.email }}">{{ company_info.email }}</a></p>
+                                </div>
+                            </div>
+
+                            {% if company_info.phone %}
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Phone</h4>
+                                    <p><a href="tel:{{ company_info.phone }}">{{ company_info.phone }}</a></p>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Address</h4>
+                                    <p>{{ company_info.address }}</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Website</h4>
+                                    <p><a href="{{ company_info.website }}" target="_blank">{{ company_info.website }}</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if company_info.linkedin or company_info.twitter or company_info.facebook %}
+                        <div class="social-links">
+                            <h4>Connect With Us</h4>
+                            <div class="social-icons">
+                                {% if company_info.linkedin %}
+                                <a href="{{ company_info.linkedin }}" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                {% endif %}
+                                {% if company_info.twitter %}
+                                <a href="{{ company_info.twitter }}" target="_blank" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                {% endif %}
+                                {% if company_info.facebook %}
+                                <a href="{{ company_info.facebook }}" target="_blank" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% else %}
+                        <!-- Default contact info when no company info is available -->
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:info@janonix.com">info@janonix.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Support</h4>
+                                    <p>24/7 support available for our clients</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Quick Contact Options -->
+                        <div class="quick-contact">
+                            <h4>Quick Actions</h4>
+                            <div class="quick-actions">
+                                <a href="{% url 'services' %}" class="quick-action-btn">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>View Services</span>
+                                </a>
+                                <a href="{% url 'portfolio' %}" class="quick-action-btn">
+                                    <i class="fas fa-eye"></i>
+                                    <span>See Portfolio</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Quick answers to common questions about our services and process</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-accordion" data-aos="fade-up">
+                        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="faq-question">
+                                <h4>How long does a typical project take?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Project timelines vary depending on complexity and scope. Simple websites typically take 2-4 weeks, while complex applications can take 2-6 months. We'll provide a detailed timeline and milestones during our initial consultation to ensure clear expectations.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="faq-question">
+                                <h4>Do you provide ongoing support after project completion?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely! We offer comprehensive support and maintenance packages to ensure your solution continues to perform optimally. This includes regular updates, security patches, technical support, and feature enhancements as your business grows.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>What technologies do you specialize in?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We work with a wide range of modern technologies including Python, JavaScript, React, Node.js, Django, Flutter, and various databases. We choose the best technology stack based on your specific project requirements, scalability needs, and long-term goals.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How do you handle project communication and updates?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We maintain transparent communication through regular email updates, video calls, and project management tools. You'll receive weekly progress reports and have direct access to our team throughout the project. We believe in keeping you informed every step of the way.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>What's your pricing structure?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our pricing is project-based and depends on the scope, complexity, and timeline. We provide detailed quotes after understanding your requirements. We offer flexible payment terms and ensure no hidden costs - everything is transparent from the start.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Let's Start Building Together</h2>
+                <p class="cta-description">
+                    Your message has been received. We'll respond within 24 hours to discuss your project
+                </p>
+                <div class="cta-buttons">
+                    <a href="{% url 'services' %}" class="btn btn-primary">
+                        <i class="fas fa-list"></i>
+                        View Our Services
+                    </a>
+                    <a href="{% url 'portfolio' %}" class="btn btn-outline-white">
+                        <i class="fas fa-folder-open"></i>
+                        Browse Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-background">
+            <div class="cta-shape shape-1"></div>
+            <div class="cta-shape shape-2"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // FAQ Accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const icon = question.querySelector('i');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                    faqItem.querySelector('.faq-answer').style.maxHeight = '0';
+                    faqItem.querySelector('.faq-question i').style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Form validation and enhancement
+        const contactForm = document.getElementById('contactForm');
+        const formInputs = contactForm.querySelectorAll('input, textarea');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+            
+            // Add focused class if input has value on page load
+            if (input.value) {
+                input.parentElement.classList.add('focused');
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.input-with-icon .form-control {
+    padding-left: 3rem;
+}
+
+.input-with-icon.focused i {
+    color: #4facfe;
+}
+
+.form-note {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.quick-contact {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.quick-action-btn {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+.quick-action-btn:hover {
+    border-color: #4facfe;
+    color: #4facfe;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.15);
+}
+
+.quick-action-btn i {
+    margin-right: 0.75rem;
+    font-size: 1.125rem;
+}
+
+.contact-cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.contact-cta-section .cta-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.contact-cta-section .cta-content p {
+    color: white;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.contact-cta-section .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-cta-section .btn-outline-primary {
+    border-color: white;
+    color: white;
+}
+
+.contact-cta-section .btn-outline-primary:hover {
+    background: white;
+    color: #4facfe;
+}
+
+@media (max-width: 768px) {
+    .contact-cta-section .cta-buttons {
+        margin-top: 2rem;
+    }
+    
+    .quick-actions {
+        flex-direction: row;
+    }
+    
+    .quick-action-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 0.75rem;
+    }
+    
+    .quick-action-btn span {
+        display: none;
+    }
+}
+</style>
+{% endblock %}
