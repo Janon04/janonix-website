@@ -126,7 +126,8 @@ def populate_company_info():
         'tagline': 'Empowering businesses with smart, scalable, and secure digital solutions',
         'description': 'We are a Rwandan technology company focused on innovation, integrity, and customer-centered software solutions. Our mission is to deliver high-quality, reliable, and affordable digital tools that empower businesses to thrive in the digital age.',
         'address': 'Kigali, Rwanda',
-        'email': 'info@janonix.rw',
+        'email': 'janonixtechnologiesltd@gmail.com',
+        'phone': '+250786003139',
         'website': 'https://www.janonix.rw',
         'linkedin': 'https://linkedin.com/company/janonix-technologies',
         'twitter': 'https://twitter.com/janonixtech',
@@ -137,10 +138,15 @@ def populate_company_info():
         company_name=company_data['company_name'],
         defaults=company_data
     )
-    if created:
-        print(f"Created company info: {company_info.company_name}")
+    
+    # Update existing record with new data
+    if not created:
+        for key, value in company_data.items():
+            setattr(company_info, key, value)
+        company_info.save()
+        print(f"Updated company info: {company_info.company_name}")
     else:
-        print(f"Company info already exists: {company_info.company_name}")
+        print(f"Created company info: {company_info.company_name}")
 
 
 def populate_why_choose_us():

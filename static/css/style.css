@@ -1554,9 +1554,234 @@ section {
 
 .about-content-section {
     padding: 80px 0;
-    background: white;
+    background: #f8f9fa;
 }
 
+.about-content-section .section-title {
+    color: #523112;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-content-section .section-title i {
+    color: #ffd700;
+    margin-right: 0.5rem;
+}
+
+.about-content-section .section-subtitle {
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+}
+
+/* About Story Section */
+.about-story {
+    padding: 2rem;
+}
+
+.story-content .lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.company-highlights {
+    margin-top: 2rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid #523112;
+}
+
+.highlight-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(82, 49, 18, 0.15);
+    border-left-color: #ffd700;
+}
+
+.highlight-icon {
+    width: 50px;
+    height: 50px;
+    background: #523112;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover .highlight-icon {
+    background: #ffd700;
+    transform: scale(1.1);
+}
+
+.highlight-icon i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.highlight-item:hover .highlight-icon i {
+    color: #523112;
+}
+
+.highlight-content h5 {
+    color: #523112;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.highlight-content p {
+    color: #000000;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Company Info Card */
+.company-info-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-left: 5px solid #523112;
+    height: 100%;
+}
+
+.info-header {
+    background: linear-gradient(135deg, #523112 0%, #3d250e 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.info-header h3 {
+    color: white;
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.info-header h3 i {
+    color: #ffd700;
+    margin-right: 0.5rem;
+}
+
+.info-content {
+    padding: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid #523112;
+}
+
+.info-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(82, 49, 18, 0.1);
+    border-left-color: #ffd700;
+}
+
+.info-icon {
+    width: 45px;
+    height: 45px;
+    background: #523112;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+    background: #ffd700;
+    transform: scale(1.05);
+}
+
+.info-icon i {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.info-item:hover .info-icon i {
+    color: #523112;
+}
+
+.info-details h4 {
+    color: #523112;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.info-details p {
+    color: #000000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-details a {
+    color: #523112;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-details a:hover {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+/* Social Links in Info Card */
+.social-info .social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.social-info .social-link {
+    width: 40px;
+    height: 40px;
+    background: #523112;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-info .social-link:hover {
+    background: #ffd700;
+    color: #523112;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* Legacy styles for backwards compatibility */
 .about-content {
     font-size: 1.125rem;
     line-height: 1.8;

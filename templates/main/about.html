@@ -19,56 +19,109 @@
     <!-- About Content Section -->
     <section class="about-content-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="about-content">
-                        {% if company_info %}
-                        <div class="section-header text-center">
-                            <h2 class="section-title">Who We Are</h2>
-                            <p class="section-subtitle">Discover the story behind our mission to transform businesses through technology</p>
-                        </div>
-                        
-                        <div class="card" data-aos="fade-up">
-                            <div class="card-body">
-                                <p class="lead">{{ company_info.description }}</p>
-                                
-                                <div class="company-details">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="detail-item">
-                                                <h4><i class="fas fa-building"></i> Company</h4>
-                                                <p>{{ company_info.company_name }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="detail-item">
-                                                <h4><i class="fas fa-envelope"></i> Email</h4>
-                                                <p><a href="mailto:{{ company_info.email }}">{{ company_info.email }}</a></p>
-                                            </div>
-                                        </div>
-                                        {% if company_info.phone %}
-                                        <div class="col-md-6">
-                                            <div class="detail-item">
-                                                <h4><i class="fas fa-phone"></i> Phone</h4>
-                                                <p><a href="tel:{{ company_info.phone }}">{{ company_info.phone }}</a></p>
-                                            </div>
-                                        </div>
-                                        {% endif %}
-                                        <div class="col-12">
-                                            <div class="detail-item">
-                                                <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
-                                                <p>{{ company_info.address }}</p>
-                                            </div>
-                                        </div>
+            <div class="section-header text-center">
+                <h2 class="section-title"><i class="fas fa-users"></i> Who We Are</h2>
+                <p class="section-subtitle">Discover the story behind our mission to transform businesses through technology</p>
+            </div>
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <div class="about-story" data-aos="fade-right">
+                        <div class="story-content">
+                            {% if company_info %}
+                            <p class="lead">{{ company_info.description }}</p>
+                            {% else %}
+                            <p class="lead">We are a Rwandan technology company focused on innovation, integrity, and customer-centered software solutions. Our mission is to deliver high-quality, reliable, and affordable digital tools that empower businesses to thrive in the digital age.</p>
+                            {% endif %}
+                            
+                            <div class="company-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h5>Innovation Driven</h5>
+                                        <p>Cutting-edge solutions using latest technologies</p>
                                     </div>
                                 </div>
-
-                                {% if company_info.linkedin or company_info.twitter or company_info.facebook %}
-                                <div class="social-links">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h5>Quality Focused</h5>
+                                        <p>High-quality, reliable, and affordable solutions</p>
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h5>Customer Centered</h5>
+                                        <p>Your success is our priority, always</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="company-info-card" data-aos="fade-left">
+                        <div class="info-header">
+                            <h3><i class="fas fa-building"></i> Company Information</h3>
+                        </div>
+                        
+                        <div class="info-content">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Company</h4>
+                                    <p>{% if company_info %}{{ company_info.company_name }}{% else %}Janonix Technologies Ltd{% endif %}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:{% if company_info %}{{ company_info.email }}{% else %}janonixtechnologiesltd@gmail.com{% endif %}">{% if company_info %}{{ company_info.email }}{% else %}janonixtechnologiesltd@gmail.com{% endif %}</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Phone</h4>
+                                    <p><a href="tel:{% if company_info.phone %}{{ company_info.phone }}{% else %}+250786003139{% endif %}">{% if company_info.phone %}{{ company_info.phone }}{% else %}+250 786 003 139{% endif %}</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Address</h4>
+                                    <p>{% if company_info %}{{ company_info.address }}{% else %}Kigali, Rwanda{% endif %}</p>
+                                </div>
+                            </div>
+                            
+                            {% if company_info.linkedin or company_info.twitter or company_info.facebook %}
+                            <div class="info-item social-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <div class="info-details">
                                     <h4>Connect With Us</h4>
-                                    <div class="social-icons">
+                                    <div class="social-links">
                                         {% if company_info.linkedin %}
                                         <a href="{{ company_info.linkedin }}" target="_blank" class="social-link">
                                             <i class="fab fa-linkedin"></i>
@@ -86,26 +139,29 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                {% endif %}
                             </div>
-                        </div>
-                        
-                        {% else %}
-                        <div class="section-header text-center">
-                            <h2 class="section-title">Who We Are</h2>
-                            <p class="section-subtitle">Discover the story behind our mission to transform businesses through technology</p>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="lead">Janonix Technologies Ltd is a leading provider of smart digital solutions, empowering businesses with scalable and secure technology solutions.</p>
-                                
-                                <p>We specialize in creating custom websites, mobile applications, API integrations, and comprehensive digital strategies that help businesses thrive in the digital age.</p>
-                                
-                                <p>Our team of experienced developers and designers work closely with clients to understand their unique needs and deliver solutions that exceed expectations.</p>
+                            {% else %}
+                            <div class="info-item social-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Connect With Us</h4>
+                                    <div class="social-links">
+                                        <a href="#" class="social-link">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                        <a href="#" class="social-link">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-link">
+                                            <i class="fab fa-facebook"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>
