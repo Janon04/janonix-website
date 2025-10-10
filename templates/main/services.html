@@ -342,42 +342,67 @@
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
+    border: 3px solid rgba(82, 49, 18, 0.1);
     text-align: center;
     transition: all 0.3s ease;
     height: 100%;
+    cursor: pointer;
 }
 
 .advantage-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(82, 49, 18, 0.2);
+    background: #523112;
+    border-color: #ffd700;
 }
 
 .advantage-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #38b2ac 0%, #319795 100%);
+    background: #523112;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.advantage-card:hover .advantage-icon {
+    background: #ffd700;
+    transform: scale(1.1);
 }
 
 .advantage-icon i {
     font-size: 1.5rem;
     color: white;
+    transition: all 0.3s ease;
+}
+
+.advantage-card:hover .advantage-icon i {
+    color: #523112;
 }
 
 .advantage-card h4 {
     color: #2d3748;
     margin-bottom: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.advantage-card:hover h4 {
+    color: white;
 }
 
 .advantage-card p {
     color: #718096;
     line-height: 1.6;
     margin: 0;
+    transition: color 0.3s ease;
+}
+
+.advantage-card:hover p {
+    color: #f8f9fa;
 }
 </style>
 {% endblock %}

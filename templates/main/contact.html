@@ -25,7 +25,7 @@
                 <div class="col-lg-8 mb-5">
                     <div class="contact-form-wrapper" data-aos="fade-right">
                         <div class="form-header">
-                            <h2>Send Us a Message</h2>
+                            <h2><i class="fas fa-envelope-open-text"></i> Send Us a Message</h2>
                             <p>Fill out the form below and we'll get back to you within 24 hours. Let's start building something amazing together.</p>
                         </div>
 
@@ -89,8 +89,10 @@
                 <!-- Contact Information -->
                 <div class="col-lg-4 mb-5">
                     <div class="contact-info" data-aos="fade-left">
-                        <h3>Get In Touch</h3>
-                        <p>Ready to start your project? We're here to help you transform your business with cutting-edge digital solutions.</p>
+                        <div class="contact-info-header">
+                            <h3><i class="fas fa-comments"></i> Get In Touch</h3>
+                            <p>Ready to start your project? We're here to help you transform your business with cutting-edge digital solutions.</p>
+                        </div>
 
                         {% if company_info %}
                         <div class="contact-details">
@@ -197,7 +199,7 @@
 
                         <!-- Quick Contact Options -->
                         <div class="quick-contact">
-                            <h4>Quick Actions</h4>
+                            <h4><i class="fas fa-bolt"></i> Quick Actions</h4>
                             <div class="quick-actions">
                                 <a href="{% url 'services' %}" class="quick-action-btn">
                                     <i class="fas fa-cogs"></i>
@@ -206,6 +208,10 @@
                                 <a href="{% url 'portfolio' %}" class="quick-action-btn">
                                     <i class="fas fa-eye"></i>
                                     <span>See Portfolio</span>
+                                </a>
+                                <a href="{% url 'about' %}" class="quick-action-btn">
+                                    <i class="fas fa-users"></i>
+                                    <span>About Us</span>
                                 </a>
                             </div>
                         </div>
@@ -359,6 +365,147 @@
 
 {% block extra_css %}
 <style>
+/* Contact Form Wrapper */
+.contact-form-wrapper {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #523112;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f8f9fa;
+}
+
+.form-header h2 {
+    color: #523112;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.form-header h2 i {
+    color: #ffd700;
+    margin-right: 0.5rem;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Contact Info Section */
+.contact-info {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #523112;
+    height: 100%;
+}
+
+.contact-info-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f8f9fa;
+}
+
+.contact-info-header h3 {
+    color: #523112;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.contact-info-header h3 i {
+    color: #ffd700;
+    margin-right: 0.5rem;
+}
+
+.contact-info-header p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Contact Items */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid #523112;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(82, 49, 18, 0.15);
+    border-left-color: #ffd700;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: #523112;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    background: #ffd700;
+    transform: scale(1.1);
+}
+
+.contact-icon i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.contact-item:hover .contact-icon i {
+    color: #523112;
+}
+
+.contact-content h4 {
+    color: #523112;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-content p {
+    color: #000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.contact-content a {
+    color: #523112;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-content a:hover {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+/* Form Styling */
 .input-with-icon {
     position: relative;
 }
@@ -368,17 +515,50 @@
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: #9ca3af;
+    color: #523112;
     transition: color 0.3s ease;
     z-index: 2;
 }
 
 .input-with-icon .form-control {
     padding-left: 3rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-with-icon .form-control:focus {
+    border-color: #523112;
+    box-shadow: 0 0 0 0.2rem rgba(82, 49, 18, 0.25);
 }
 
 .input-with-icon.focused i {
-    color: #4facfe;
+    color: #ffd700;
+}
+
+.form-group label {
+    color: #523112;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    background: #523112;
+    border-color: #523112;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #ffd700;
+    border-color: #ffd700;
+    color: #523112;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(82, 49, 18, 0.3);
 }
 
 .form-note {
@@ -386,12 +566,27 @@
     color: #718096;
     margin-top: 1rem;
     margin-bottom: 0;
+    text-align: center;
 }
 
+/* Quick Contact Section */
 .quick-contact {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 2px solid #523112;
+}
+
+.quick-contact h4 {
+    color: #523112;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.quick-contact h4 i {
+    color: #ffd700;
+    margin-right: 0.5rem;
 }
 
 .quick-actions {
@@ -404,31 +599,99 @@
 .quick-action-btn {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    justify-content: center;
+    padding: 1.25rem;
     background: white;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
+    border: 2px solid #523112;
+    border-radius: 10px;
     text-decoration: none;
-    color: #4a5568;
+    color: #523112;
     transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .quick-action-btn:hover {
-    border-color: #4facfe;
-    color: #4facfe;
+    background: #523112;
+    color: white;
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(82, 49, 18, 0.25);
 }
 
 .quick-action-btn i {
     margin-right: 0.75rem;
     font-size: 1.125rem;
+    transition: all 0.3s ease;
 }
 
+.quick-action-btn:hover i {
+    color: #ffd700;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.social-links h4 {
+    color: #523112;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: #523112;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #ffd700;
+    color: #523112;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* Messages Styling */
+.messages .alert {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: #d4edda;
+    border-color: #523112;
+    color: #155724;
+}
+
+.alert-error {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+/* Contact CTA Section */
 .contact-cta-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #523112 0%, #3d2508 100%);
     color: white;
 }
 
@@ -456,26 +719,57 @@
 
 .contact-cta-section .btn-outline-primary:hover {
     background: white;
-    color: #4facfe;
+    color: #523112;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
+    .contact-form-wrapper,
+    .contact-info {
+        padding: 2rem;
+    }
+    
+    .form-header h2,
+    .contact-info-header h3 {
+        font-size: 1.5rem;
+    }
+    
     .contact-cta-section .cta-buttons {
         margin-top: 2rem;
     }
     
     .quick-actions {
         flex-direction: row;
+        flex-wrap: wrap;
     }
     
     .quick-action-btn {
         flex: 1;
-        justify-content: center;
-        padding: 0.75rem;
+        min-width: calc(50% - 0.5rem);
+        padding: 1rem;
     }
     
     .quick-action-btn span {
+        font-size: 0.9rem;
+    }
+    
+    .contact-item {
+        padding: 1rem;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-action-btn span {
         display: none;
+    }
+    
+    .quick-action-btn {
+        padding: 0.75rem;
     }
 }
 </style>

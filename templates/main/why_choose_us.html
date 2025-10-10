@@ -362,57 +362,83 @@
 }
 
 .differentiator-card {
-    background: #f8fafc;
+    background: white;
     padding: 2.5rem;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
     transition: all 0.3s ease;
     height: 100%;
-    border: 1px solid #e2e8f0;
+    border: 2px solid transparent;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .differentiator-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    background: white;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(82, 49, 18, 0.15);
+    border-color: #523112;
+    background: #fefefe;
 }
 
 .diff-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: #523112;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.differentiator-card:hover .diff-icon {
+    background: #ffd700;
+    transform: scale(1.1);
 }
 
 .diff-icon i {
     font-size: 1.5rem;
     color: white;
+    transition: color 0.3s ease;
+}
+
+.differentiator-card:hover .diff-icon i {
+    color: #523112;
 }
 
 .differentiator-card h4 {
-    color: #2d3748;
+    color: #000000;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .differentiator-card p {
-    color: #718096;
+    color: #000000;
     line-height: 1.6;
     margin: 0;
 }
 
 .metrics-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #f8f9fa;
+    color: #333;
 }
 
 .metric-card {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.metric-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(82, 49, 18, 0.15);
+    border-color: #523112;
 }
 
 .metric-number {
@@ -420,7 +446,7 @@
     font-weight: 700;
     margin-bottom: 0.5rem;
     display: block;
-    color: white;
+    color: #523112;
 }
 
 .metric-label {
@@ -428,13 +454,13 @@
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
-    color: white;
+    color: #000000;
 }
 
 .metric-description {
     font-size: 0.875rem;
-    opacity: 0.9;
-    color: white;
+    color: #000000;
+    line-height: 1.5;
 }
 
 .visual-grid {

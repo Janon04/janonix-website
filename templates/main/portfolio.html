@@ -338,26 +338,35 @@
     background: white;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 3px solid transparent;
+    border-left: 4px solid #523112;
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(82, 49, 18, 0.2);
+    border-color: #ffd700;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
 }
 
 .stat-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ed64a6 0%, #9f7aea 100%);
+    background: #523112;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+    background: #ffd700;
+    transform: scale(1.1);
 }
 
 .stat-icon i {
@@ -365,15 +374,24 @@
     color: white;
 }
 
+.stat-card:hover .stat-icon i {
+    color: #523112;
+}
+
 .stat-content h3 {
     font-size: 2rem;
     font-weight: 700;
     color: #2d3748;
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.stat-card:hover .stat-content h3 {
+    color: #523112;
 }
 
 .stat-content p {
-    color: #718096;
+    color: #000000;
     margin: 0;
     font-weight: 500;
 }
@@ -384,17 +402,21 @@
 }
 
 .success-card {
-    background: #f8fafc;
+    background: white;
     padding: 2.5rem;
     border-radius: 12px;
-    border-left: 4px solid #ed64a6;
+    border: 3px solid transparent;
+    border-left: 4px solid #523112;
     transition: all 0.3s ease;
     height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .success-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(82, 49, 18, 0.2);
+    border-color: #ffd700;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
 }
 
 .success-metric {
@@ -408,13 +430,18 @@
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ed64a6;
+    color: #523112;
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.success-card:hover .metric-number {
+    color: #ffd700;
 }
 
 .metric-label {
     display: block;
-    color: #718096;
+    color: #000000;
     font-weight: 500;
     text-transform: uppercase;
     font-size: 0.875rem;
@@ -423,14 +450,15 @@
 
 .success-card p {
     font-style: italic;
-    color: #4a5568;
+    color: #000000;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
 .client-info {
-    color: #2d3748;
+    color: #523112;
     font-size: 0.875rem;
+    font-weight: 600;
 }
 </style>
 {% endblock %}
