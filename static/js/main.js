@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
         right: 30px;
         width: 50px;
         height: 50px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #b46b0aff 0%, #cf7c0fff 100%);
         color: white;
         border: none;
         border-radius: 50%;
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
         visibility: hidden;
         transition: all 0.3s ease;
         z-index: 1000;
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 5px 15px rgba(241, 145, 11, 0.3);
     `;
     
     document.body.appendChild(backToTop);
