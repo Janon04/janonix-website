@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="120" viewBox="0 0 180 120">
+  <!-- Blue stripe -->
+  <rect width="180" height="40" fill="#00A1DE"/>
+  
+  <!-- Yellow stripe -->
+  <rect y="40" width="180" height="20" fill="#FAD201"/>
+  
+  <!-- Green stripe -->
+  <rect y="60" width="180" height="60" fill="#00A651"/>
+  
+  <!-- Sun in upper right -->
+  <g transform="translate(135, 20)">
+    <!-- Sun circle -->
+    <circle cx="0" cy="0" r="12" fill="#FAD201"/>
+    
+    <!-- Sun rays -->
+    <g stroke="#FAD201" stroke-width="1.5" fill="none">
+      <!-- Primary rays -->
+      <line x1="0" y1="-18" x2="0" y2="-22"/>
+      <line x1="12.7" y1="-12.7" x2="15.6" y2="-15.6"/>
+      <line x1="18" y1="0" x2="22" y2="0"/>
+      <line x1="12.7" y1="12.7" x2="15.6" y2="15.6"/>
+      <line x1="0" y1="18" x2="0" y2="22"/>
+      <line x1="-12.7" y1="12.7" x2="-15.6" y2="15.6"/>
+      <line x1="-18" y1="0" x2="-22" y2="0"/>
+      <line x1="-12.7" y1="-12.7" x2="-15.6" y2="-15.6"/>
+      
+      <!-- Secondary rays -->
+      <line x1="9" y1="-15.6" x2="11" y2="-19"/>
+      <line x1="15.6" y1="-9" x2="19" y2="-11"/>
+      <line x1="15.6" y1="9" x2="19" y2="11"/>
+      <line x1="9" y1="15.6" x2="11" y2="19"/>
+      <line x1="-9" y1="15.6" x2="-11" y2="19"/>
+      <line x1="-15.6" y1="9" x2="-19" y2="11"/>
+      <line x1="-15.6" y1="-9" x2="-19" y2="-11"/>
+      <line x1="-9" y1="-15.6" x2="-11" y2="-19"/>
+    </g>
+  </g>
+</svg>

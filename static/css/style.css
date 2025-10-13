@@ -129,6 +129,27 @@ p {
 .nav-logo a {
     text-decoration: none;
     color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-flag {
+    height: 40px;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.logo-flag:hover {
+    transform: scale(1.05);
+}
+
+.logo-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
 }
 
 .logo-text {
@@ -141,7 +162,6 @@ p {
     font-size: 0.9rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.8);
-    margin-left: 0.5rem;
 }
 
 .nav-list {
@@ -1026,6 +1046,22 @@ section {
 
 .footer-logo {
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-logo-flag {
+    height: 35px;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer-logo-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
 }
 
 .footer-description {
@@ -1185,6 +1221,23 @@ section {
 
     .nav-toggle.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile logo adjustments */
+    .logo-flag {
+        height: 30px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .footer-logo-flag {
+        height: 25px;
     }
 
     .hero-content {
