@@ -399,6 +399,77 @@ section {
     margin: 0 auto;
 }
 
+/* Team grid styles (moved from templates/main/team.html) */
+.team-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px; /* small gap so cards are closer */
+    justify-content:center;
+}
+.team-col{
+    flex:0 0 calc(33.333% - 16px);
+    max-width: calc(33.333% - 16px);
+}
+
+/* Medium screens: 2 columns */
+@media (max-width: 992px){
+    .team-col{ flex:0 0 calc(50% - 16px); max-width: calc(50% - 16px); }
+}
+
+/* Small screens: single column */
+@media (max-width: 576px){
+    .team-col{ flex:0 0 100%; max-width:100%; }
+}
+
+/* Reduce card inner spacing so cards appear tighter */
+.team-card .card-body{ padding:1rem; }
+.team-card .team-photo img{ width:150px; height:150px; object-fit:cover; border:4px solid rgba(255,255,255,0.06); }
+
+/* Profile bio: chocolate background and readable text */
+.team-bio{
+    background: #523112; /* chocolate */
+    color: #fff; /* readable on chocolate */
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Collapsed bio: show just a few lines with fade */
+.team-bio{
+        background: #523112; /* chocolate */
+        color: #fff; /* readable on chocolate */
+        padding: 0.75rem;
+        border-radius: 8px;
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+}
+
+/* Team header (name + role) styled like bio */
+.team-header{
+    background: #523112; /* chocolate */
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+.team-header .team-name{ margin:0; font-size:1.05rem; font-weight:700; }
+.team-header .team-role{ margin:0; font-size:0.9rem; font-weight:500; opacity:0.92; }
+
+/* Photo animation */
+.team-photo img{
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.team-photo img:hover{
+    transform: scale(1.06) rotate(-1deg);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+
 .section-cta {
     text-align: center;
     margin-top: 3rem;

@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 import json
 from .models import Service, Project, CompanyInfo, WhyChooseUs, ContactMessage
+from .models import TeamMember
 
 
 def home(request):
@@ -49,6 +50,16 @@ def why_choose_us(request):
         'reasons': WhyChooseUs.objects.filter(is_active=True),
     }
     return render(request, 'main/why_choose_us.html', context)
+
+
+def team(request):
+    """Meet Our Team page view"""
+    members = TeamMember.objects.filter(is_active=True)
+    context = {
+        'members': members,
+        'company_info': CompanyInfo.objects.first(),
+    }
+    return render(request, 'main/team.html', context)
 
 
 def contact(request):

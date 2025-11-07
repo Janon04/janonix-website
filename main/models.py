@@ -93,3 +93,29 @@ class WhyChooseUs(models.Model):
         ordering = ['order']
         verbose_name = "Why Choose Us"
         verbose_name_plural = "Why Choose Us"
+
+
+class TeamMember(models.Model):
+    """Model for team members shown on the Meet Our Team page."""
+    name = models.CharField(max_length=200)
+    role = models.CharField(max_length=200, blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
+    # Use ImageField so admins can upload profile pictures.
+    # Requires Pillow in the environment (already listed in requirements.txt).
+    photo = models.ImageField(
+        upload_to='team/',
+        blank=True,
+        null=True,
+        help_text='Upload a profile image (will be stored in MEDIA_ROOT/team/)'
+    )
+    order = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['order', 'name']
+        verbose_name = 'Team Member'
+        verbose_name_plural = 'Team Members'

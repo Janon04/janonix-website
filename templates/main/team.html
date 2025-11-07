@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Meet Our Team - Janonix Technologies Ltd{% endblock %}
+
+{% block description %}Meet the dedicated team behind Janonix Technologies Ltd — experts in development, design, and product delivery.{% endblock %}
+
+{% block content %}
+<section class="hero-section team-hero">
+    <div class="container">
+        <div class="hero-content text-center">
+            <h1 class="hero-title">Meet Our Team</h1>
+            <p class="hero-subtitle">Talented professionals driving successful digital solutions</p>
+        </div>
+    </div>
+</section>
+
+<section class="team-section py-5">
+    <div class="container">
+        {% if members %}
+        <div class="team-grid">
+            {% for member in members %}
+            <div class="team-col">
+                <article class="card team-card h-100 shadow-sm" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                    <div class="card-body text-center py-4">
+                        <div class="team-photo mb-3">
+                            {% if member.photo %}
+                                <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="rounded-circle">
+                            {% else %}
+                                <img src="{% static 'images/janonix_profile_pic_logo_white.jpg' %}" alt="{{ member.name }}" class="rounded-circle">
+                            {% endif %}
+                        </div>
+                        <div class="team-header mb-2">
+                            <h5 class="team-name">{{ member.name }}</h5>
+                            {% if member.role %}<p class="team-role">{{ member.role }}</p>{% endif %}
+                        </div>
+                        {% if member.bio %}
+                            <p class="team-bio">{{ member.bio }}</p>
+                        {% endif %}
+                    </div>
+                    {% if member.photo %}
+                    <div class="card-footer text-center bg-white py-2">
+                        <a href="mailto:" class="small text-decoration-none">Connect</a>
+                    </div>
+                    {% endif %}
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center">Team information is not available yet. Add members via the Django admin.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% comment %} Read-more removed; bios now display in full and header styled in CSS {% endcomment %}
+
+{% comment %} Styles for the team grid have been moved to static/css/style.css {% endcomment %}

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Service, Project, ContactMessage, CompanyInfo, WhyChooseUs
+from .models import Service, Project, ContactMessage, CompanyInfo, WhyChooseUs, TeamMember
+from django.utils.html import format_html
 
 
 @admin.register(Service)
@@ -50,3 +51,20 @@ class WhyChooseUsAdmin(admin.ModelAdmin):
     search_fields = ['title', 'description']
     list_editable = ['order', 'is_active']
     ordering = ['order']
+
+
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ['name', 'role', 'is_active', 'order', 'photo_preview']
+    list_filter = ['is_active']
+    search_fields = ['name', 'role']
+    list_editable = ['is_active', 'order']
+    readonly_fields = ['photo_preview']
+    fields = ('name', 'role', 'bio', 'photo', 'photo_preview', 'order', 'is_active')
+
+    def photo_preview(self, obj):
+        if obj.photo:
+            return format_html('<img src="{}" style="height:60px;border-radius:6px;" />', obj.photo.url)
+        return '(no image)'
+
+    photo_preview.short_description = 'Photo'
