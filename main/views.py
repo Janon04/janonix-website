@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 import json
-from .models import Service, Project, CompanyInfo, WhyChooseUs, ContactMessage
+from .models import Service, Project, CompanyInfo, WhyChooseUs, ContactMessage, PartnerRequest
 from .models import TeamMember
 
 
@@ -21,6 +21,25 @@ def home(request):
 
 def about(request):
     """About page view"""
+    if request.method == 'POST':
+        # Handle Partner with Us submissions
+        name = request.POST.get('partner_name')
+        email = request.POST.get('partner_email')
+        company = request.POST.get('partner_company')
+        message_text = request.POST.get('partner_message')
+
+        if name and email and message_text:
+            PartnerRequest.objects.create(
+                name=name,
+                email=email,
+                company=company,
+                message=message_text
+            )
+            messages.success(request, 'Thank you — your partnership inquiry has been received. We will contact you soon.')
+            return redirect('about')
+        else:
+            messages.error(request, 'Please fill in your name, email, and a short message to partner with us.')
+
     context = {
         'company_info': CompanyInfo.objects.first(),
     }

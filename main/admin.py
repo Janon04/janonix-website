@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Project, ContactMessage, CompanyInfo, WhyChooseUs, TeamMember
+from .models import Service, Project, ContactMessage, CompanyInfo, WhyChooseUs, TeamMember, PartnerRequest
 from django.utils.html import format_html
 
 
@@ -68,3 +68,11 @@ class TeamMemberAdmin(admin.ModelAdmin):
         return '(no image)'
 
     photo_preview.short_description = 'Photo'
+
+
+@admin.register(PartnerRequest)
+class PartnerRequestAdmin(admin.ModelAdmin):
+    list_display = ['name', 'company', 'email', 'is_handled', 'created_at']
+    list_filter = ['is_handled', 'created_at']
+    search_fields = ['name', 'company', 'email', 'message']
+    readonly_fields = ['created_at']

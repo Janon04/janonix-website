@@ -95,6 +95,24 @@ class WhyChooseUs(models.Model):
         verbose_name_plural = "Why Choose Us"
 
 
+class PartnerRequest(models.Model):
+    """Stores partnership inquiries submitted from the About page."""
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    company = models.CharField(max_length=200, blank=True, null=True)
+    message = models.TextField()
+    is_handled = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.company or 'Individual'}"
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Partner Request'
+        verbose_name_plural = 'Partner Requests'
+
+
 class TeamMember(models.Model):
     """Model for team members shown on the Meet Our Team page."""
     name = models.CharField(max_length=200)
